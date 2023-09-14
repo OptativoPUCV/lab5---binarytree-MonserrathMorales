@@ -65,7 +65,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
       return;
     }
     tree->current = tree->root;
-    while(tree->current != NULL) {
+    while(1) {
       // caso 1: la clave ya existe
       if(is_equal(tree, key, tree->current->pair->key) == 1) {
         return;
@@ -90,7 +90,6 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
           tree->current = tree->current->right;
         }
       }
-      tree->current++;
     }
 }
 
