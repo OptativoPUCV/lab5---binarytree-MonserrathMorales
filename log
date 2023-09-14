@@ -73,3 +73,16 @@ treemap.c:80:26: error: array subscript is not an integer
 cc1: all warnings being treated as errors
 Compilation failed
 9119581
+Thu 14 Sep 2023 07:45:28 PM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘searchTreeMap’:
+treemap.c:78:42: error: array subscript is not an integer
+   78 |       if(nodo->pair != NULL && nodo->pair[tree->current]->key) {
+      |                                          ^
+treemap.c:80:26: error: array subscript is not an integer
+   80 |         return nodo->pair[tree->current];
+      |                          ^
+Compilation failed
+d4063c6
