@@ -281,3 +281,17 @@ treemap.c:57:9: error: ‘*nodo.pair’ is used uninitialized [-Werror=uninitial
 cc1: all warnings being treated as errors
 Compilation failed
 a4dcaaa
+Thu 14 Sep 2023 11:38:46 PM UTC: 
+ treemap.c | 1 -
+ 1 file changed, 1 deletion(-)
+In file included from test.c:4:
+test.c: In function ‘insertTreeMap’:
+treemap.c:55:9: error: ‘*nodo.pair’ is used uninitialized [-Werror=uninitialized]
+   55 |     nodo->pair->key = key;
+      |     ~~~~^~~~~~
+treemap.c:56:9: error: ‘*nodo.pair’ is used uninitialized [-Werror=uninitialized]
+   56 |     nodo->pair->value = value;
+      |     ~~~~^~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+403e723
