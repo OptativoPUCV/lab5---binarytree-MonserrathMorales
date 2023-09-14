@@ -48,9 +48,47 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
     return map;
 }
 
-
+/* inserta un nuevo dato (key,value) en el árbol y hace que el current apunte al nuevo nodo.
+Para insertar un dato, primero debe realizar una búsqueda para encontrar donde debería ubicarse. Luego crear el nuevo nodo y enlazarlo. Si la clave del dato ya existe retorne sin hacer nada (recuerde que el mapa no permite claves repetidas). */
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
+    TreeNode * nodo = (TreeNode *) malloc(sizeof(TreeNode);
+    nodo->pair->key = key;
+    nodo->pair->key = value;
+    nodo->left = NULL;
+    nodo->right = NULL;
 
+    if(tree->root == NULL) {
+      tree->root = nodo;
+      return;
+    }
+    tree->current = tree->root;
+    while(tree->current != NULL) {
+      // caso 1: la clave ya existe
+      if(is_equal(tree, key, tree->current->pair->key == 1) {
+        return;
+      }
+      // caso 2: la clave es menor que el current
+      else if(tree->lower_than(key, tree->current->pair->key) == 1) {
+        if(tree->current->left == NULL) {
+          tree->current->left = nodo;
+          return;
+        }
+        else {
+          tree->current = tree->current->left;
+        }
+      }
+      // caso 3: la clave es mayor que el current
+      else {
+        if(tree->current->right == NULL) {
+          tree->current->right = nodo;
+          return;
+        }
+        else {
+          tree->current = tree->current->right;
+        }
+      }
+      tree->current++;
+    }
 }
 
 TreeNode * minimum(TreeNode * x){
@@ -80,7 +118,6 @@ Esta función retorna 1 si key1<key2. */
 Retorna 1 si las claves son iguales y 0 si no lo son. */
 Pair * searchTreeMap(TreeMap * tree, void* key) {
     tree->current = tree->root;
-  
     while(tree->current != NULL) {
       if(is_equal(tree, key, tree->current->pair->key) == 1) {
         return tree->current->pair;
@@ -91,7 +128,6 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
       else {
         tree->current = tree->current->right;
       }
-      
     }
     return NULL;
 }

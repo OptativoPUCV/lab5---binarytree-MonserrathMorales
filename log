@@ -167,3 +167,22 @@ Thu 14 Sep 2023 10:59:02 PM UTC:
  tests:  11|6
 total_score: 15/70
 0611d78
+Thu 14 Sep 2023 11:35:27 PM UTC: 
+ treemap.c | 42 ++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 40 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:54:59: error: expected ‘)’ before ‘;’ token
+   54 |     TreeNode * nodo = (TreeNode *) malloc(sizeof(TreeNode);
+      |                                          ~                ^
+      |                                                           )
+test.c:606:1: error: expected declaration or statement at end of input
+  606 | }
+      | ^
+In file included from test.c:4:
+treemap.c:54:16: error: unused variable ‘nodo’ [-Werror=unused-variable]
+   54 |     TreeNode * nodo = (TreeNode *) malloc(sizeof(TreeNode);
+      |                ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+5cbc3a7
