@@ -214,3 +214,17 @@ treemap.c:91:5: error: expected expression before ‘}’ token
 cc1: all warnings being treated as errors
 Compilation failed
 ee1dbeb
+Thu 14 Sep 2023 11:36:03 PM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+test.c: In function ‘insertTreeMap’:
+treemap.c:55:9: error: ‘*nodo.pair’ is used uninitialized [-Werror=uninitialized]
+   55 |     nodo->pair->key = key;
+      |     ~~~~^~~~~~
+treemap.c:56:9: error: ‘*nodo.pair’ is used uninitialized [-Werror=uninitialized]
+   56 |     nodo->pair->key = value;
+      |     ~~~~^~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+4efcbd2
