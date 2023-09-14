@@ -2,3 +2,33 @@ Thu 14 Sep 2023 07:15:40 PM UTC:
  tests:  1|8
 total_score: 0/70
 3f447ab
+Thu 14 Sep 2023 07:24:18 PM UTC: 
+ treemap.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘createTreeMap’:
+treemap.c:42:55: error: expected ‘)’ before ‘;’ token
+   42 |     TreeMap * map = (TreeMap *) malloc(sizeof(TreeMap);
+      |                                       ~               ^
+      |                                                       )
+treemap.c:47:1: error: expected ‘,’ or ‘;’ before ‘}’ token
+   47 | }
+      | ^
+test.c:503:5: error: ‘main’ is normally a non-static function [-Werror=main]
+  503 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:606:1: error: expected declaration or statement at end of input
+  606 | }
+      | ^
+In file included from test.c:4:
+treemap.c:42:15: error: unused variable ‘map’ [-Werror=unused-variable]
+   42 |     TreeMap * map = (TreeMap *) malloc(sizeof(TreeMap);
+      |               ^~~
+test.c:607: error: control reaches end of non-void function [-Werror=return-type]
+At top level:
+test.c:503:5: error: ‘main’ defined but not used [-Werror=unused-function]
+  503 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+272f170
