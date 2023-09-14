@@ -41,7 +41,7 @@ El siguiente código muestra como inicializar la función de comparación. Reser
 TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
     TreeMap * map = (TreeMap *) malloc(sizeof(TreeMap));
     map->root = NULL;
-    map->root = NULL;
+    map->current = NULL;
     map->lower_than = lower_than;
     return map;
 }
@@ -70,10 +70,10 @@ void eraseTreeMap(TreeMap * tree, void* key){
 
 }
 
-
-
-
+/* busca el nodo con clave igual a key y retorna el **Pair** asociado al nodo. Si no se encuentra la clave retorna NULL.
+Recuerde hacer que el current apunte al nodo encontrado. */
 Pair * searchTreeMap(TreeMap * tree, void* key) {
+  TreeNode* nodo = 
     return NULL;
 }
 
