@@ -40,6 +40,8 @@ TreeNode * createTreeNode(void* key, void * value) {
 El siguiente código muestra como inicializar la función de comparación. Reserve memoria, inicialice el resto de variables y retorne el mapa. */
 TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
     TreeMap * map = (TreeMap *) malloc(sizeof(TreeMap));
+    if(map == NULL) exit(EXIT_FAILURE);
+  
     map->root = NULL;
     map->current = NULL;
     map->lower_than = lower_than;
@@ -73,13 +75,16 @@ void eraseTreeMap(TreeMap * tree, void* key){
 /* busca el nodo con clave igual a key y retorna el **Pair** asociado al nodo. Si no se encuentra la clave retorna NULL.
 Recuerde hacer que el current apunte al nodo encontrado. */
 Pair * searchTreeMap(TreeMap * tree, void* key) {
-    TreeNode* nodo = tree->current;
+    TreeNode* nodo = (TreeNode *) malloc(sizeof(TreeNode));
+    if(nodo == NULL) exit(EXIT_FAILURE);
+    long indice = 0;
+  
     while(1) {
-      if(nodo->pair != NULL && nodo->pair[tree->current]->key) {
+      if(nodo->pair[indice]->key && strcmp(nodo->pair[indice]->key, key) == 0) {
         tree->current = nodo;
         return nodo->pair[tree->current];
       }
-      tree->current++;
+      indice++;
     }
     return NULL;
 }
