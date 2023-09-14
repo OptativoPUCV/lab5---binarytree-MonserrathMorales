@@ -186,3 +186,31 @@ treemap.c:54:16: error: unused variable ‘nodo’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 5cbc3a7
+Thu 14 Sep 2023 11:35:49 PM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:67:55: error: comparison between pointer and integer [-Werror]
+   67 |       if(is_equal(tree, key, tree->current->pair->key == 1) {
+      |                                                       ^~
+treemap.c:67:55: error: passing argument 3 of ‘is_equal’ makes pointer from integer without a cast [-Werror=int-conversion]
+   67 |       if(is_equal(tree, key, tree->current->pair->key == 1) {
+      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+      |                                                       |
+      |                                                       int
+In file included from test.c:4:
+treemap.c:22:47: note: expected ‘void *’ but argument is of type ‘int’
+   22 | int is_equal(TreeMap* tree, void* key1, void* key2){
+      |                                         ~~~~~~^~~~
+In file included from test.c:4:
+treemap.c:67:60: error: expected ‘)’ before ‘{’ token
+   67 |       if(is_equal(tree, key, tree->current->pair->key == 1) {
+      |         ~                                                  ^~
+      |                                                            )
+treemap.c:91:5: error: expected expression before ‘}’ token
+   91 |     }
+      |     ^
+cc1: all warnings being treated as errors
+Compilation failed
+ee1dbeb
