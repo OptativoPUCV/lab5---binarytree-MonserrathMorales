@@ -74,8 +74,9 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
       // caso 2: la clave es menor que el current
       else if(tree->lower_than(key, tree->current->pair->key) == 1) {
         if(tree->current->left == NULL) {
-          tree->current->left = nodo;
           nodo->parent = tree->current;
+          tree->current->left = nodo;
+          tree->current = nodo;
           return;
         }
         else {
@@ -85,8 +86,9 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
       // caso 3: la clave es mayor que el current
       else {
         if(tree->current->right == NULL) {
-          tree->current->right = nodo;
           nodo->parent = tree->current;
+          tree->current->right = nodo;
+          tree->current = nodo;
           return;
         }
         else {
