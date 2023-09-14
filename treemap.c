@@ -82,7 +82,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
     while(1) {
       if(nodo->pair[indice]->key && strcmp(nodo->pair[indice]->key, key) == 0) {
         tree->current = nodo;
-        return nodo->pair[tree->current];
+        return nodo->pair[indice];
       }
       indice++;
     }
