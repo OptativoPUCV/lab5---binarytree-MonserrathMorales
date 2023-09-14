@@ -75,13 +75,11 @@ void eraseTreeMap(TreeMap * tree, void* key){
 /* busca el nodo con clave igual a key y retorna el **Pair** asociado al nodo. Si no se encuentra la clave retorna NULL.
 Recuerde hacer que el current apunte al nodo encontrado. */
 Pair * searchTreeMap(TreeMap * tree, void* key) {
-    TreeNode* nodo = (TreeNode *) malloc(sizeof(TreeNode));
-    if(nodo == NULL) exit(EXIT_FAILURE);
+    tree->current = tree->root;
   
-    while(1) {
-      if(nodo->pair[tree->current]->key && strcmp(nodo->pair[tree->current]->key, key) == 0) {
-        tree->current = nodo;
-        return nodo->pair[tree->current];
+    while(tree->current != NULL) {
+      if(is_equal(tree, key, tree->current->pair->key) == 1) {
+        return tree->current->pair;
       }
       tree->current++;
     }

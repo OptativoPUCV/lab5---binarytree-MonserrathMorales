@@ -134,3 +134,8 @@ treemap.c:84:26: error: array subscript is not an integer
       |                          ^
 Compilation failed
 b90a981
+Thu 14 Sep 2023 08:00:49 PM UTC: 
+ treemap.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
+ tests:  0|0
+236a3c4
