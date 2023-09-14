@@ -118,3 +118,19 @@ treemap.c:85:26: error: incompatible types when returning type ‘Pair’ but �
       |                ~~~~~~~~~~^~~~~~~~
 Compilation failed
 1b8f2a7
+Thu 14 Sep 2023 07:53:22 PM UTC: 
+ treemap.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘searchTreeMap’:
+treemap.c:82:20: error: array subscript is not an integer
+   82 |       if(nodo->pair[tree->current]->key && strcmp(nodo->pair[tree->current]->key, key) == 0) {
+      |                    ^
+treemap.c:82:61: error: array subscript is not an integer
+   82 |       if(nodo->pair[tree->current]->key && strcmp(nodo->pair[tree->current]->key, key) == 0) {
+      |                                                             ^
+treemap.c:84:26: error: array subscript is not an integer
+   84 |         return nodo->pair[tree->current];
+      |                          ^
+Compilation failed
+b90a981

@@ -77,14 +77,13 @@ Recuerde hacer que el current apunte al nodo encontrado. */
 Pair * searchTreeMap(TreeMap * tree, void* key) {
     TreeNode* nodo = (TreeNode *) malloc(sizeof(TreeNode));
     if(nodo == NULL) exit(EXIT_FAILURE);
-    long indice = 0;
   
     while(1) {
-      if(nodo->pair[indice]->key && strcmp(nodo->pair[indice]->key, key) == 0) {
+      if(nodo->pair[tree->current]->key && strcmp(nodo->pair[tree->current]->key, key) == 0) {
         tree->current = nodo;
-        return nodo->pair[indice];
+        return nodo->pair[tree->current];
       }
-      indice++;
+      tree->current++;
     }
     return NULL;
 }
