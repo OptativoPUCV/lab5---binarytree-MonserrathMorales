@@ -164,11 +164,11 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     // caso 3: eliminar un nodo con dos hijos
     else {
       TreeNode * sucesor = minimum(node->right);
-      int keySucesor = *(int *) sucesor->pair->key;
+      void* keySucesor = sucesor->pair->key;
       void* valueSucesor = sucesor->pair->value;
       removeNode(tree, sucesor);
       
-      node->pair->key = (void *) keySucesor;
+      node->pair->key = keySucesor;
       node->pair->value = valueSucesor;
     }
 }
