@@ -214,21 +214,32 @@ Pair * upperBound(TreeMap * tree, void* key) {
   TreeNode* ub_node = NULL;
   TreeNode* temp = tree->root;
 
-  while(tree->root != NULL) {
-    if(tree->lower_than(key, temp->pair->key) == 1) {
+  while(temp != NULL) {
+    if(temp->pair != NULL) {
+      if(tree->lower_than(key, temp->pair->key) == 1) {
       ub_node = temp;
       temp = temp->left;
+      }
+      else if(tree->lower_than(temp->pair->key, key) == 1) {
+        temp = temp->right;
+      }
+      // clave = clave del nodo
+      else {
+        return temp->pair;
+      }
     }
-    else if(tree->lower_than(temp->pair->key, key) == 1) {
-      temp = temp->right;
-    }
-    // clave = clave del nodo
     else {
-      return temp->pair;
+      break;
     }
   }
   // Null si todas las claves son menores
-  return ub_node->pair;
+  if(ub_node != NULL) {
+    return ub_node->paur;
+  }
+  else {
+    return NULL;
+  }
+  }
 }
 
 /* Pair* firstTreeMap(TreeMap* tree) retorna el primer **Pair** del mapa (el menor).
