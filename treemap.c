@@ -159,8 +159,8 @@ void removeNode(TreeMap * tree, TreeNode* node) {
           }
         }
       free(node);
+      }
     }
-
     // caso 3: eliminar un nodo con dos hijos
     else {
       TreeNode * sucesor = minimum(node->right);
