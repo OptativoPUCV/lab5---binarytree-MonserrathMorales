@@ -211,8 +211,12 @@ Pair * upperBound(TreeMap * tree, void* key) {
     return NULL;
 }
 
+/* Pair* firstTreeMap(TreeMap* tree) retorna el primer **Pair** del mapa (el menor).
+Pair* nextTreeMap(TreeMap* tree)  retornar el siguiente **Pair** del mapa a partir del puntero TreeNode* current. Recuerde actualizar este puntero. */
 Pair * firstTreeMap(TreeMap * tree) {
-    return NULL;
+    TreeNode * minimo = minimum(tree->root);
+    tree->current = minimo;
+    return minimo->pair;
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
