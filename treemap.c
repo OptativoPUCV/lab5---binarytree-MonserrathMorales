@@ -223,11 +223,11 @@ Pair * upperBound(TreeMap * tree, void* key) {
     }
     // clave = clave del nodo
     else {
-      return tree->root;
+      return tree->root->pair;
     }
   }
   // Null si todas las claves son menores
-  return ub_node;
+  return ub_node->pair;
 }
 
 /* Pair* firstTreeMap(TreeMap* tree) retorna el primer **Pair** del mapa (el menor).
