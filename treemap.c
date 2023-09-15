@@ -227,7 +227,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
     }
   }
   // Null si todas las claves son menores
-  if(ub_node->pair != NULL) {
+  if(ub_node != NULL) {
     return ub_node->pair;
   }
   else {
