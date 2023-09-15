@@ -168,7 +168,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
       void* valueSucesor = sucesor->pair->value;
       removeNode(tree, sucesor);
       
-      node->pair->key = (TreeNode) keySucesor;
+      node->pair->key = keySucesor;
       node->pair->value = valueSucesor;
     }
 }
