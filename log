@@ -337,3 +337,14 @@ Fri 15 Sep 2023 12:00:01 AM UTC:
  tests:  15|4
 total_score: 25/70
 b1ed196
+Fri 15 Sep 2023 12:51:15 AM UTC: 
+ treemap.c | 37 +++++++++++++++++++++++++++++++++++--
+ 1 file changed, 35 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:138:32: error: ‘hijo’ may be used uninitialized [-Werror=maybe-uninitialized]
+  138 |             node->parent->left = hijo;
+      |             ~~~~~~~~~~~~~~~~~~~^~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+b3bac30

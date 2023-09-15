@@ -101,24 +101,51 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
 /* retorna el **nodo con la mínima clave** ubicado en el subárbol con raiz x. Para obtener el nodo tiene que, a partir del nodo x, irse por la rama izquierda hasta llegar al final del subárbol. Si x no tiene hijo izquierdo se retorna el mismo nodo. */
 TreeNode * minimum(TreeNode * x){
     TreeNode * current = x;
-  
     if(current->left == NULL) {
       return current;
     }
     while(current->left != NULL) {
       current = current->left;
     }
-
-
-
-
-  
-    return current;
+  return current;
 }
 
-
+/* elimina el nodo *node* del árbol *tree*. Recuerde que para eliminar un node existen 3 casos:
+**Nodo sin hijos:** Se anula el puntero del padre que apuntaba al nodo
+**Nodo con un hijo:** El padre del nodo pasa a ser padre de su hijo
+**Nodo con dos hijos:** Descienda al hijo derecho y obtenga el menor nodo del subárbol (con la función minimum). Reemplace los datos (key,value) de *node* con los del nodo "minimum". Elimine el nodo minimum (para hacerlo puede usar la misma función *removeNode*). */
 void removeNode(TreeMap * tree, TreeNode* node) {
-
+    // caso 1: eliminar nodo sin hijos
+    if(node->left == NULL && node->right == NULL) {
+      if(node == tree->root) {
+        tree->root = NULL;
+      }
+      else {
+        if(node->parent->left == node) {
+          node->parent->left = NULL;
+        }
+        else {
+          node->parent->right = NULL;
+        }
+      }
+      free(node);
+    }
+    // caso 2: eliminar nodo con un hijo
+    else if(node->left != NULL || node->right != NULL) {
+      TreeNode * hijo;
+      if(node->parent->left != NULL) {
+        if (node->parent->left == node) {
+            node->parent->left = hijo;
+        } else {
+            node->parent->right = hijo;
+        }
+        hijo->parent = node->parent;
+      }
+      else {
+        tree->root = hijo;
+        hijo->parent = NULL;
+      }
+    }
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
