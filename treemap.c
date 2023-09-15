@@ -223,5 +223,16 @@ Pair * firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
+    if(tree->root == NULL) return NULL;
+
+    // el siguiente al current está a la izquierda
+    if(tree->current->left != NULL) {
+      return tree->current->left;
+    }
+    // el siguiente al current está a la izquierda
+    else {
+      return tree->current->left;
+    }
+    // current no tiene hijos
     return NULL;
 }
