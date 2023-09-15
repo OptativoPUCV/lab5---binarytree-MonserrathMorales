@@ -593,3 +593,21 @@ Fri 15 Sep 2023 10:08:24 PM UTC:
  tests:  25|1
 total_score: 60/70
 3c32352
+Fri 15 Sep 2023 10:41:12 PM UTC: 
+ treemap.c | 18 +++++++++++++++++-
+ 1 file changed, 17 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘upperBound’:
+treemap.c:221:32: error: ‘TreeNode’ has no member named ‘rigt’; did you mean ‘right’?
+  221 |       tree->root = tree->root->rigt;
+      |                                ^~~~
+      |                                right
+treemap.c:225:18: error: returning ‘TreeNode *’ from a function with incompatible return type ‘Pair *’ [-Werror=incompatible-pointer-types]
+  225 |       return tree->root;
+      |              ~~~~^~~~~~
+treemap.c:214:14: error: unused variable ‘ub_node’ [-Werror=unused-variable]
+  214 |   TreeNode * ub_node;
+      |              ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+9d9f09e
