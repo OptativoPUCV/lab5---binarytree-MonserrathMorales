@@ -611,3 +611,17 @@ treemap.c:214:14: error: unused variable ‘ub_node’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 9d9f09e
+Fri 15 Sep 2023 10:43:35 PM UTC: 
+ treemap.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘upperBound’:
+treemap.c:226:18: error: returning ‘TreeNode *’ from a function with incompatible return type ‘Pair *’ [-Werror=incompatible-pointer-types]
+  226 |       return tree->root;
+      |              ~~~~^~~~~~
+treemap.c:230:10: error: returning ‘TreeNode *’ from a function with incompatible return type ‘Pair *’ [-Werror=incompatible-pointer-types]
+  230 |   return ub_node;
+      |          ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+7d86b03
