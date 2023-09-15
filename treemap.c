@@ -223,7 +223,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
     }
     // clave = clave del nodo
     else {
-      return tree->current->pair;
+      return tree->root->pair;
     }
   }
   // Null si todas las claves son menores
