@@ -142,7 +142,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         hijo->parent = node->parent;
       }
       else {
-        tree->root = hijo;
+        hijo = tree->root;
         hijo->parent = NULL;
       }
     }
