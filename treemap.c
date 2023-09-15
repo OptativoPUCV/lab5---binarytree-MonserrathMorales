@@ -106,7 +106,7 @@ TreeNode * minimum(TreeNode * x){
       return current;
     }
     while(current->left != NULL) {
-      current = current->left
+      current = current->left;
     }
 
 
