@@ -227,23 +227,19 @@ Pair * nextTreeMap(TreeMap * tree) {
 
     // el siguiente al current es el menor (2 hijos)
     if(tree->current->left != NULL && tree->current->right != NULL) {
-      if(tree->lower_than(tree->current->left->pair->key, tree->current->right->pair->key) == 1) {
-        tree->current = tree->current->right;
+        tree->current = minimum(tree->current->right);
         return tree->current->pair;
-      }
     }
     // el siguiente al current está a la izquierda
-    else if(tree->current->left != NULL) {
+    if(tree->current->left != NULL) {
       tree->current = tree->current->left;
       return tree->current->pair;
     }
     // el siguiente al current está a la derecha
-    else if(tree->current->right != NULL){
+    if(tree->current->right != NULL) {
       tree->current = tree->current->right;
       return tree->current->pair;
     }
     // current no tiene hijos
-    else {
-      return NULL;
-    }
+    return NULL;
 }
