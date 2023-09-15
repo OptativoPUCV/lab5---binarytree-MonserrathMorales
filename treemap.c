@@ -212,27 +212,23 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 Para implementarla puede realizar una búsqueda normal y usar un puntero a nodo auxiliar ub_node que vaya guardando el nodo con la menor clave *mayor o igual a key*. Finalmente retorne el par del nodo ub\_node. */
 Pair * upperBound(TreeMap * tree, void* key) {
   TreeNode* ub_node = NULL;
+  TreeNode* temp = tree->root;
 
   while(tree->root != NULL) {
     if(tree->lower_than(key, tree->root->pair->key) == 1) {
-      ub_node = tree->root;
-      tree->root = tree->root->left;
+      ub_node = temp;
+      temp = temp->left;
     }
     else if(tree->lower_than(tree->root->pair->key, key) == 1) {
-      tree->root = tree->root->right;
+      temp = temp->right;
     }
     // clave = clave del nodo
     else {
-      return tree->root->pair;
+      return temp->pair;
     }
   }
   // Null si todas las claves son menores
-  if(ub_node != NULL) {
-    return ub_node->pair;
-  }
-  else {
-    return NULL;
-  }
+  return ub_node->pair;
 }
 
 /* Pair* firstTreeMap(TreeMap* tree) retorna el primer **Pair** del mapa (el menor).
