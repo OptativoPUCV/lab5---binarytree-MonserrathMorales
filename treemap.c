@@ -222,24 +222,19 @@ Pair * firstTreeMap(TreeMap * tree) {
     return minimo->pair;
 }
 
+/* NEXT se refiere al valor más cercano al current, por ejemplo 12->13 en el subarbol derecho*/
 Pair * nextTreeMap(TreeMap * tree) {
     if(tree->root == NULL || tree->current == NULL) return NULL;
 
-    // el siguiente al current es el menor (2 hijos)
-    if(tree->current->left != NULL && tree->current->right != NULL) {
-        tree->current = minimum(tree->current->right);
-        return tree->current->pair;
-    }
-    // el siguiente al current está a la izquierda
-    if(tree->current->left != NULL) {
-      tree->current = tree->current->left;
-      return tree->current->pair;
-    }
-    // el siguiente al current está a la derecha
+    // siguiente al current en el subarbol derecho (1 hijo a la derecha)
     if(tree->current->right != NULL) {
-      tree->current = tree->current->right;
+      tree->current = minimum(tree->current->right);
       return tree->current->pair;
     }
-    // current no tiene hijos
+    // ancestro al current en el subarbol derecho (no tiene hijo derecho)
+    while (tree->current->parent != NULL && tree->current == tree->current->parent->right) {
+        tree->current = tree->current->parent;
+    }
+    tree->current = tree->current->parent;
     return NULL;
 }
