@@ -227,7 +227,8 @@ Pair * upperBound(TreeMap * tree, void* key) {
     }
   }
   // Null si todas las claves son menores
-  return ub_node->pair;
+  if(ub_node->pair != NULL) return ub_node->pair;
+  return NULL;
 }
 
 /* Pair* firstTreeMap(TreeMap* tree) retorna el primer **Pair** del mapa (el menor).
