@@ -132,7 +132,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     }
 
     // caso 2: eliminar un nodo con un hijo
-    else if(node->left != NULL || node->right != NULL) {
+    else if(node->left != NULL && node->right != NULL) {
       if(node == tree->root) {
         if(node->left != NULL) {
           tree->root = node->left;
@@ -170,12 +170,9 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     // caso 3: eliminar un nodo con dos hijos
     else {
       TreeNode * sucesor = minimum(node->right);
-      void* keySucesor = sucesor->pair->key;
-      void* valueSucesor = sucesor->pair->value;
+      node->pair->key = sucesor->pair->key;
+      node->pair->value = sucesor->pair->value;
       removeNode(tree, sucesor);
-      
-      node->pair->key = keySucesor;
-      node->pair->value = valueSucesor;
     }
 }
 
