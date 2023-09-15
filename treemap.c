@@ -227,11 +227,13 @@ Pair * nextTreeMap(TreeMap * tree) {
 
     // el siguiente al current está a la izquierda
     if(tree->current->left != NULL) {
-      return tree->current->left;
+      tree->current = tree->current->left;
+      return tree->current->left->pair;
     }
-    // el siguiente al current está a la izquierda
+    // el siguiente al current está a la derecha
     else {
-      return tree->current->left;
+      tree->current = tree->current->right;
+      return tree->current->right->pair;
     }
     // current no tiene hijos
     return NULL;
