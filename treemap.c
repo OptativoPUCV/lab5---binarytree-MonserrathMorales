@@ -215,11 +215,11 @@ Pair * upperBound(TreeMap * tree, void* key) {
   TreeNode* temp = tree->root;
 
   while(tree->root != NULL) {
-    if(tree->lower_than(key, tree->root->pair->key) == 1) {
+    if(tree->lower_than(key, temp->pair->key) == 1) {
       ub_node = temp;
       temp = temp->left;
     }
-    else if(tree->lower_than(tree->root->pair->key, key) == 1) {
+    else if(tree->lower_than(temp->pair->key, key) == 1) {
       temp = temp->right;
     }
     // clave = clave del nodo
