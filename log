@@ -482,3 +482,14 @@ treemap.c:171:23: error: assignment to ‘void *’ from ‘int’ makes pointer
 cc1: all warnings being treated as errors
 Compilation failed
 0d0921b
+Fri 15 Sep 2023 01:51:52 AM UTC: 
+ treemap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:171:25: error: cast to pointer from integer of different size [-Werror=int-to-pointer-cast]
+  171 |       node->pair->key = (void *) keySucesor;
+      |                         ^
+cc1: all warnings being treated as errors
+Compilation failed
+d33f5c2
