@@ -115,6 +115,8 @@ TreeNode * minimum(TreeNode * x){
 **Nodo con un hijo:** El padre del nodo pasa a ser padre de su hijo
 **Nodo con dos hijos:** Descienda al hijo derecho y obtenga el menor nodo del subárbol (con la función minimum). Reemplace los datos (key,value) de *node* con los del nodo "minimum". Elimine el nodo minimum (para hacerlo puede usar la misma función *removeNode*). */
 void removeNode(TreeMap * tree, TreeNode* node) {
+    if (tree == NULL || node == NULL) return;
+  
     // caso 1: eliminar nodo sin hijos
     if(node->left == NULL && node->right == NULL) {
       if(node == tree->root) {
@@ -214,6 +216,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
 /* Pair* firstTreeMap(TreeMap* tree) retorna el primer **Pair** del mapa (el menor).
 Pair* nextTreeMap(TreeMap* tree)  retornar el siguiente **Pair** del mapa a partir del puntero TreeNode* current. Recuerde actualizar este puntero. */
 Pair * firstTreeMap(TreeMap * tree) {
+    if(tree->root == NULL) return NULL;
     TreeNode * minimo = minimum(tree->root);
     tree->current = minimo;
     return minimo->pair;
